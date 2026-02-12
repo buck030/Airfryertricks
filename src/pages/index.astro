@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CommunityCard from '../components/CommunityCard.astro';
+import TipCard from '../components/TipCard.astro';
+
+const tips = [
+  {
+    title: 'Verwarm altijd voor',
+    description: 'Laat je airfryer 3\u20135 minuten voorverwarmen voor een krokant en gelijkmatig resultaat. Dit maakt een groot verschil bij frietjes en snacks.',
+  },
+  {
+    title: 'Niet te vol laden',
+    description: 'Overlaad de mand niet. Hete lucht moet vrij kunnen circuleren. Bak liever in twee keer voor het beste resultaat.',
+  },
+  {
+    title: 'Gebruik een beetje olie',
+    description: 'Een licht laagje olie (spray of kwast) geeft extra knapperigheid. Vooral bij verse groenten en aardappelproducten werkt dit perfect.',
+  },
+  {
+    title: 'Schud halverwege',
+    description: 'Schud de mand halverwege de bereidingstijd. Zo worden alle kanten gelijkmatig krokant en voorkom je dat eten aan elkaar plakt.',
+  },
+  {
+    title: 'Maak direct schoon',
+    description: 'Maak de mand en het rooster schoon na elk gebruik. Ingedroogd vet is lastig te verwijderen en kan rook veroorzaken bij de volgende keer.',
+  },
+];
+---
+
+<BaseLayout title="Airfryer Tips & Tricks">
+  <header class="hero">
+    <h1>Airfryer Tips &amp; Tricks</h1>
+    <p>
+      De #1 airfryer community van Nederland &mdash; ontdek de lekkerste
+      recepten en slimste tips.
+    </p>
+  </header>
+
+  <CommunityCard />
+
+  <section class="section">
+    <h2 class="section-title">5 Essenti&euml;le Airfryer Tips</h2>
+    <p class="section-subtitle">
+      Haal het maximale uit je airfryer met deze bewezen tips.
+    </p>
+
+    <div class="tips-grid">
+      {tips.map((tip, i) => (
+        <TipCard number={i + 1} title={tip.title} description={tip.description} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<BaseLayout title="Blog - Airfryer Tips & Tricks" description="Artikelen, recepten en tips voor je airfryer.">
+  <section class="section">
+    <h1 class="section-title">Blog</h1>
+    <p class="section-subtitle">Recepten, tips en meer uit de airfryer community.</p>
+
+    {posts.length === 0 ? (
+      <p style="text-align: center; color: var(--text-muted);">Nog geen artikelen. Kom snel terug!</p>
+    ) : (
+      <div class="blog-grid">
+        {posts.map((post) => (
+          <a href={`/blog/${post.id.replace(/\.md$/, '')}`} class="blog-card">
+            <time datetime={post.data.date.toISOString().slice(0, 10)}>
+              {post.data.date.toLocaleDateString('nl-NL', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </time>
+            <h3>{post.data.title}</h3>
+            <p>{post.data.description}</p>
+            <span class="read-more">Lees meer &rarr;</span>
+          </a>
+        ))}
+      </div>
+    )}
+  </section>
+</BaseLayout>
