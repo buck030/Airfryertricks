@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { Analytics } from '@vercel/analytics/astro';
 import '../styles/global.css';
 
 interface Props {
@@ -24,5 +25,6 @@ const { title, description = 'De beste airfryer tips, tricks en recepten van de 
     <Header />
     <slot />
     <Footer />
+    <Analytics />
   </body>
 </html>

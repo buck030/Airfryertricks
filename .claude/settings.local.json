@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(git config:*)",
+      "Bash(npm create:*)",
+      "Bash(xcopy \"c:\\\\Users\\\\DennisdeBuck\\\\Desktop\\\\IT\\\\Development-Projects\\\\astro-temp\\\\*\" \"c:\\\\Users\\\\DennisdeBuck\\\\Desktop\\\\IT\\\\Development-Projects\\\\Airfryer\"\" /E /Y /I 2>&1 && rmdir /S /Q \"c:UsersDennisdeBuckDesktopITDevelopment-Projectsastro-temp \")",
+      "Bash(powershell -Command \"Remove-Item -Path ''.git'' -Recurse -Force\")",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(npm install:*)"
+    ]
+  }
+}
