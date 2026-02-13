@@ -6,6 +6,10 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     date: z.date(),
+    author: z.string().optional(),
+    category: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+    featured: z.boolean().optional(),
   }),
 });
 
